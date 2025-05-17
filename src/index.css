@@ -15,12 +15,13 @@
     --scrollbar-width: 8px;
     --content-width: min(100vw - 2rem, 80rem);
     
-    /* Color variables */
-    --color-canvas: #f8fafc;
-    --color-primary-900: #1e293b;
+    /* Color variables matching aesthetic blueprint */
+    --color-canvas: #f7f8f9;
+    --color-primary: #1b1b1b;
     --color-accent1: #00eaff;
     --color-accent2: #ffb600;
-    --color-state: #ef4444;
+    --color-contrast: #0a0020;
+    --color-state: #ff006e;
   }
 
   html {
@@ -30,7 +31,7 @@
   
   body {
     background-color: var(--color-canvas);
-    color: var(--color-primary-900);
+    color: var(--color-primary);
     font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -167,63 +168,63 @@
   .btn:focus {
     outline: 2px solid transparent;
     outline-offset: 2px;
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 3px rgba(0, 234, 255, 0.4);
   }
   
   .btn-primary {
-    background-color: #00eaff;
-    color: #1e293b;
+    background-color: var(--color-accent1);
+    color: var(--color-contrast);
   }
   
   .btn-primary:hover {
-    background-color: #00d1e6;
-    box-shadow: 0 0 15px rgba(0, 234, 255, 0.5);
+    background-color: rgba(0, 234, 255, 0.9);
+    box-shadow: 0 0 15px rgba(0, 234, 255, 0.4);
   }
   
   .btn-secondary {
     background-color: transparent;
-    border: 2px solid #ffb600;
-    color: #ffb600;
+    border: 2px solid var(--color-accent2);
+    color: var(--color-accent2);
   }
   
   .btn-secondary:hover {
     background-color: rgba(255, 182, 0, 0.1);
-    box-shadow: 0 0 0 1px #ffb600;
+    box-shadow: 0 0 0 1px var(--color-accent2);
   }
 
   .btn-dark {
-    background-color: #1e293b;
-    color: #f8fafc;
+    background-color: var(--color-primary);
+    color: var(--color-canvas);
   }
   
   .btn-dark:hover {
-    background-color: #334155;
+    background-color: #2b2b2b;
   }
 
   .btn-state {
-    background-color: #ef4444;
+    background-color: var(--color-state);
     color: white;
   }
   
   .btn-state:hover {
-    background-color: #dc2626;
+    background-color: #e6005e;
   }
 
   .btn-outline {
     background-color: transparent;
-    border: 2px solid #1e293b;
-    color: #1e293b;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
   }
   
   .btn-outline:hover {
-    background-color: rgba(30, 41, 59, 0.05);
+    background-color: rgba(27, 27, 27, 0.05);
   }
 
   .btn-glass {
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(4px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #1e293b;
+    color: var(--color-primary);
   }
   
   .btn-glass:hover {
@@ -600,7 +601,7 @@
 /* Custom selection colors */
 ::selection {
   background-color: rgba(0, 212, 255, 0.3);
-  color: #1e293b;
+  color: var(--color-primary);
 }
 
 /* Color blend mode utilities */
