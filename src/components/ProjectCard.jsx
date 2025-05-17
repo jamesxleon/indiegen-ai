@@ -114,11 +114,11 @@ export default function ProjectCard({ title, description, tags = [], image, link
         </p>
         
         {/* Tags */}
-        <div className="flex flex-wrap gap-1.5 mt-auto mb-4">
+        <div className="flex flex-wrap gap-2 mt-auto mb-4">
           {tags.filter(tag => tag !== 'Featured').map((tag, i) => (
             <span
               key={i}
-              className="px-2.5 py-0.5 text-xs font-medium bg-gradient-to-r from-neon-100/10 to-neon-200/10 border border-neon-300/10 text-graphite-200 rounded-full transition-all duration-200 hover:border-neon-400/20"
+              className="px-3 py-1 text-xs font-medium bg-gradient-to-r from-neon-100/10 to-neon-200/10 border border-neon-300/10 text-graphite-200 rounded-full transition-all duration-200 hover:border-neon-400/20"
             >
               {tag}
             </span>
