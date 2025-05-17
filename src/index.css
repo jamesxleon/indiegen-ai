@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Teko:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-offwhite text-graphite font-sans antialiased leading-relaxed;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight;
+  }
+  
+  h1 {
+    @apply text-5xl md:text-7xl lg:text-8xl;
+  }
+  
+  h2 {
+    @apply text-4xl md:text-6xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  p {
+    @apply text-lg leading-relaxed text-graphite/90;
+  }
+  
+  a {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-8 py-3 rounded-full font-medium tracking-wide transition-all duration-200 ease-out;
+  }
+  
+  .btn-primary {
+    @apply bg-neon text-graphite hover:bg-neon/90 hover:shadow-neon-glow;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border-2 border-inti text-inti hover:bg-inti/10 hover:shadow-gold-glow;
+  }
+  
+  .section {
+    @apply py-20 md:py-32 px-4 md:px-8 lg:px-12 xl:px-24;
+  }
+  
+  .container {
+    @apply max-w-7xl mx-auto w-full px-4 md:px-8;
+  }
+  
+  .maki-divider {
+    @apply w-full h-4 bg-repeat-x bg-center bg-[length:100px_4px] bg-maki-pattern opacity-50 my-12;
+  }
+  
+  .neon-glow {
+    text-shadow: 0 0 10px rgba(0, 230, 255, 0.7);
+  }
+  
+  .gold-glow {
+    text-shadow: 0 0 10px rgba(255, 182, 0, 0.5);
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-offwhite;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-neon/30 rounded-full hover:bg-neon/50 transition-colors;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Glow utility */
+.glow-neon {
+  @apply shadow-[0_0_20px_theme("colors.neon")];
+}

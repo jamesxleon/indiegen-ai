@@ -1,0 +1,18 @@
+<svg width="1200" height="200" viewBox="0 0 1200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="50" y="100" width="30" height="100" fill="currentColor"/>
+  <rect x="100" y="70" width="40" height="130" fill="currentColor"/>
+  <rect x="170" y="120" width="35" height="80" fill="currentColor"/>
+  <rect x="230" y="90" width="50" height="110" fill="currentColor"/>
+  <rect x="310" y="50" width="60" height="150" fill="currentColor"/>
+  <rect x="400" y="80" width="40" height="120" fill="currentColor"/>
+  <rect x="470" y="60" width="45" height="140" fill="currentColor"/>
+  <rect x="550" y="100" width="30" height="100" fill="currentColor"/>
+  <rect x="610" y="120" width="40" height="80" fill="currentColor"/>
+  <rect x="680" y="70" width="35" height="130" fill="currentColor"/>
+  <rect x="750" y="90" width="50" height="110" fill="currentColor"/>
+  <rect x="830" y="50" width="60" height="150" fill="currentColor"/>
+  <rect x="920" y="80" width="40" height="120" fill="currentColor"/>
+  <rect x="990" y="60" width="45" height="140" fill="currentColor"/>
+  <rect x="1070" y="100" width="30" height="100" fill="currentColor"/>
+  <rect x="1130" y="120" width="40" height="80" fill="currentColor"/>
+</svg>
