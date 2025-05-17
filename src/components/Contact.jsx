@@ -16,7 +16,7 @@ export default function Contact() {
           </div>
           <button type="submit" className="btn btn-primary">Initiate Pachakutik</button>
         </form>
-        <p className="mt-6 text-sm text-graphite/70">
+        <p className="mt-6 text-sm text-graphite">
           📧 james@urkulabs.com
         </p>
       </div>

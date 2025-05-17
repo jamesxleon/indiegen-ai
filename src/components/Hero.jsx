@@ -82,7 +82,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.8 }}
-          className="max-w-2xl mx-auto text-xl md:text-2xl text-graphite-100/90 mb-8"
+          className="max-w-2xl mx-auto text-xl md:text-2xl text-offwhite mb-8"
         >
           Builder of intelligent systems at the intersection of culture and technology.
         </motion.p>
@@ -113,7 +113,7 @@ export default function Hero() {
           transition={{ repeat: Infinity, duration: 2 }}
           className="flex flex-col items-center"
         >
-          <span className="text-sm text-graphite-100/60 mb-2">Scroll to explore</span>
+          <span className="text-sm text-offwhite/80 mb-2">Scroll to explore</span>
           <FiArrowDown className="text-neon-400 animate-bounce" />
         </motion.div>
       </motion.div>
