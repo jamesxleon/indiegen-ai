@@ -1,73 +1,150 @@
 import { motion } from 'framer-motion';
-import { AiOutlineLink } from 'react-icons/ai';
-import { FaGithub } from 'react-icons/fa';
+import { FiExternalLink, FiGithub, FiFolder } from 'react-icons/fi';
 
-export default function ProjectCard({ title, description, tags, image, link, github }) {
+export default function ProjectCard({ title, description, tags = [], image, link, github }) {
+  // Animation variants
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.23, 1, 0.32, 1] // Smooth cubic-bezier easing
+      }
+    },
+    hover: { 
+      y: -8,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const contentVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        delay: 0.1,
+        duration: 0.4
+      }
+    }
+  };
+
   return (
     <motion.div
-      className="group relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col"
-      whileHover={{ y: -8 }}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-100px' }}
-      transition={{ duration: 0.5 }}
+      className="group relative overflow-hidden h-full flex flex-col glass-card hover-card"
+      variants={cardVariants}
+      initial="hidden"
+      whileInView="visible"
+      whileHover="hover"
+      viewport={{ once: true, margin: '-50px' }}
     >
-      <div className="h-48 bg-gradient-to-br from-inti/10 to-neon/10 overflow-hidden relative">
+      {/* Card ribbon (optional) */}
+      {tags.includes('Featured') && (
+        <div className="absolute top-0 right-0 z-10">
+          <div className="bg-magenta-500 text-white text-xs font-medium py-1 px-3 rounded-bl-lg shadow-md transform rotate-0 origin-top-right">
+            Featured
+          </div>
+        </div>
+      )}
+
+      {/* Image container */}
+      <div className="h-52 overflow-hidden relative">
         {image ? (
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
+          <div className="img-highlight w-full h-full">
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover hover-scale"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-graphite-300/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
         ) : (
-          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-inti/5 to-neon/5">
-            <span className="text-4xl">📁</span>
+          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-inti-50/20 to-neon-50/20">
+            <FiFolder className="text-5xl text-inti-400/70" />
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-          <div className="flex gap-3">
+
+        {/* Project actions */}
+        <div className="absolute inset-x-0 bottom-0 p-3 flex justify-end opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out z-10">
+          <div className="flex gap-2">
             {link && (
-              <a
+              <motion.a
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/90 text-graphite flex items-center justify-center hover:bg-neon hover:text-white transition-colors"
+                className="w-9 h-9 rounded-full glass-effect backdrop-blur-md flex items-center justify-center text-graphite-200 hover:text-neon-500 hover:border-neon-300/50 transition-all duration-200 transform hover:scale-110"
                 aria-label="View project"
+                whileHover={{ y: -2 }}
               >
-                <AiOutlineLink className="w-5 h-5" />
-              </a>
+                <FiExternalLink className="w-4 h-4" />
+              </motion.a>
             )}
             {github && (
-              <a
+              <motion.a
                 href={github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/90 text-graphite flex items-center justify-center hover:bg-graphite hover:text-white transition-colors"
+                className="w-9 h-9 rounded-full glass-effect backdrop-blur-md flex items-center justify-center text-graphite-200 hover:text-magenta-500 hover:border-magenta-300/50 transition-all duration-200 transform hover:scale-110"
                 aria-label="View on GitHub"
+                whileHover={{ y: -2 }}
               >
-                <FaGithub className="w-5 h-5" />
-              </a>
+                <FiGithub className="w-4 h-4" />
+              </motion.a>
             )}
           </div>
         </div>
       </div>
-      <div className="p-6 flex-1 flex flex-col">
-        <h3 className="text-2xl font-bold mb-2 text-graphite">{title}</h3>
-        <p className="text-graphite/80 mb-4">{description}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {tags.map((tag, i) => (
+
+      {/* Content container */}
+      <motion.div 
+        className="p-6 flex-1 flex flex-col"
+        variants={contentVariants}
+      >
+        <h3 className="text-xl md:text-2xl font-bold mb-2 text-graphite-200 group-hover:text-graphite-300 transition-colors duration-200">
+          {title}
+        </h3>
+        
+        <p className="text-graphite-100/90 text-base mb-4 line-clamp-3">
+          {description}
+        </p>
+        
+        {/* Tags */}
+        <div className="flex flex-wrap gap-1.5 mt-auto mb-4">
+          {tags.filter(tag => tag !== 'Featured').map((tag, i) => (
             <span
               key={i}
-              className="px-3 py-1 text-xs font-teko tracking-wider text-magenta border border-inti/30 rounded-full"
+              className="px-2.5 py-0.5 text-xs font-medium bg-gradient-to-r from-neon-100/10 to-neon-200/10 border border-neon-300/10 text-graphite-200 rounded-full transition-all duration-200 hover:border-neon-400/20"
             >
               {tag}
             </span>
           ))}
         </div>
-        <a href={link} className="inline-flex items-center text-neon font-medium group">
-          View Project
-        </a>
-      </div>
+        
+        {/* Call to action */}
+        {link && (
+          <motion.a 
+            href={link}
+            className="mt-2 inline-flex items-center text-neon-500 font-medium group text-sm"
+            whileHover={{ x: 3 }}
+            transition={{ duration: 0.2 }}
+          >
+            View Project
+            <svg 
+              className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-200" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </motion.a>
+        )}
+      </motion.div>
     </motion.div>
   );
 }
