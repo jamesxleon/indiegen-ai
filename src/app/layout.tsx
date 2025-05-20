@@ -2,10 +2,10 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, Space_Grotesk, Teko } from 'next/font/google';
 import './globals.css';
-import NavigationClient from '@/components/NavigationClient';
-import CursorHaloClient from '@/components/CursorHaloClient';
-import LenisProvider from '@/components/LenisProvider';
-import ThemeToggle from '@/components/ThemeToggle';
+import NavigationClient from '@/components/layout/NavigationClient';
+import CursorHaloClient from '@/components/animation/CursorHaloClient';
+import LenisProvider from '@/components/layout/LenisProvider';
+import ThemeToggle from '@/components/layout/ThemeToggle';
 import { Provider as JotaiProvider } from 'jotai';
 
 // Font definitions
@@ -76,13 +76,7 @@ export default function RootLayout({
     >
       <head>
         {/* Preload fonts */}
-        <link
-          rel="preload"
-          href="/fonts/NeueHaasDisplay-Roman.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
+        {/* Font preload removed as file is missing */}
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased">
         <JotaiProvider>

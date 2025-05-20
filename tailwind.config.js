@@ -12,6 +12,24 @@ module.exports = {
         '2xl': '1400px',
       },
     },
+    colors: {
+      neon: {
+        cyan: '#2C3A40',
+        DEFAULT: '#2C3A40',
+        dark: '#00eaff',
+        light: '#2C3A40',
+      },
+      inti: {
+        gold: '#d69a00',
+        DEFAULT: '#d69a00',
+        dark: '#b37f00',
+      },
+      violet: {
+        900: '#0a0020',
+        DEFAULT: '#0a0020',
+      },
+      graphite: '#1b1b1b',
+    },
     extend: {
       colors: {
         border: 'hsl(var(--border))',
@@ -57,6 +75,8 @@ module.exports = {
         inti: {
           gold: "#ffb600",
           DEFAULT: "#ffb600",
+          dark: "#d69a00", // Darker variant for better contrast
+          gold: "#d69a00",
         },
         violet: {
           backdrop: "#0a0020",

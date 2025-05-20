@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { useInView } from 'framer-motion';
 import Link from 'next/link';
-import Parallax from './Parallax';
-import InteractiveButton from './ui/InteractiveButton';
+import Parallax from '@/components/animation/Parallax';
+import InteractiveButton from '@/components/ui/InteractiveButton';
 import { useTheme } from '@/hooks/useTheme';
 
 export default function Hero() {
@@ -110,7 +110,7 @@ export default function Hero() {
             className="mx-auto mb-12 max-w-3xl text-xl font-medium md:text-2xl"
             variants={item}
           >
-            <span className={`${isDarkTheme ? 'text-white' : 'text-graphite'} bg-background/70 px-3 py-1 rounded-md shadow-sm`}>
+            <span className={`${isDarkTheme ? 'text-white' : 'text-violet-900'} bg-background/90 dark:bg-background/70 px-3 py-1 rounded-md shadow-sm`}>
               Kichwa-born builder of intelligent systems.
             </span>
           </motion.p>
@@ -119,7 +119,7 @@ export default function Hero() {
             className="mb-12 text-2xl font-display uppercase tracking-widest md:text-3xl"
             variants={item}
           >
-            <span className="neon-pulse text-neon-cyan shadow-glow-cyan">
+            <span className={`${isDarkTheme ? 'text-neon-cyan' : 'text-violet-900'} font-bold tracking-wider`}>
               indiegen.ai
             </span>
           </motion.div>
@@ -167,9 +167,9 @@ export default function Hero() {
             } 
           }}
         >
-          <div className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-neon-cyan p-1">
+          <div className={`flex h-10 w-6 items-start justify-center rounded-full border-2 ${isDarkTheme ? 'border-neon-cyan' : 'border-violet-900'} p-1`}>
             <motion.div 
-              className="h-2 w-1 rounded-full bg-neon-cyan"
+              className={`h-2 w-1 rounded-full ${isDarkTheme ? 'bg-neon-cyan' : 'bg-violet-900'}`}
               animate={{ 
                 y: [0, 12, 0],
               }}

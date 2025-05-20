@@ -99,7 +99,7 @@ export default function Contact() {
         </motion.div>
 
         <motion.div 
-          className="max-w-2xl mx-auto bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10"
+          className="max-w-2xl mx-auto bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm rounded-xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg"
           variants={item}
         >
           {status.message && (
@@ -164,7 +164,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-neon to-inti text-black font-bold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-neon-cyan to-inti-gold text-white font-bold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>

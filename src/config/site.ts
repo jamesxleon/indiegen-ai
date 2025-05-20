@@ -39,22 +39,25 @@ export const projects = [
     title: 'IndieGen.AI',
     description: 'An AI platform for indigenous language preservation and learning.',
     tags: ['Next.js', 'ML', 'NLP'],
-    image: '/project1.jpg',
+    image: '/images/projects/placeholder.svg',
     link: '#',
+    category: ['all', 'ai', 'web'],
   },
   {
     title: 'Andean Vision',
     description: 'Computer vision for identifying Andean flora and fauna.',
     tags: ['Python', 'TensorFlow', 'React'],
-    image: '/project2.jpg',
+    image: '/images/projects/placeholder.svg',
     link: '#',
+    category: ['all', 'ai'],
   },
   {
     title: 'Kichwa Voice',
     description: 'Speech-to-text for Kichwa language with translation.',
     tags: ['React Native', 'NLP', 'Firebase'],
-    image: '/project3.jpg',
+    image: '/images/projects/placeholder.svg',
     link: '#',
+    category: ['all', 'ai', 'web'],
   },
 ];
 

@@ -46,21 +46,21 @@ export default function About() {
           animate={isInView ? 'show' : 'hidden'}
         >
           <motion.div variants={item} className="mb-4">
-            <span className="section-label">About Me</span>
+            <span className="section-label bg-background/90 dark:bg-background/80 px-3 py-1 rounded-md shadow-sm text-violet-900 dark:text-white">About Me</span>
           </motion.div>
           
           <motion.h2 variants={item} className="mb-8">
             Building Bridges Between Worlds
           </motion.h2>
           
-          <motion.div variants={item} className="space-y-6 text-lg">
+          <motion.div variants={item} className="space-y-6 text-lg text-gray-700 dark:text-gray-300">
             <p>
               Born in the heart of the Andes, I bring a unique perspective to technology that blends ancient wisdom with modern innovation. My Kichwa heritage taught me the value of community, resilience, and sustainable thinking—principles that guide my work in building intelligent systems.
             </p>
             <p>
               With a foundation in both the technical and the human aspects of technology, I create solutions that are not just functional but meaningful, bridging the gap between cutting-edge innovation and real-world impact.
             </p>
-            <p className="text-neon font-medium">
+            <p className="text-violet-800 dark:text-neon-cyan font-semibold">
               Let's build something extraordinary together.
             </p>
           </motion.div>

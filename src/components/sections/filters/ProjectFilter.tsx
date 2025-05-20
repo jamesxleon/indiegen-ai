@@ -60,7 +60,7 @@ function FilterButton({ isActive, onClick, label }: FilterButtonProps) {
       {isActive && (
         <motion.div
           layoutId="activeFilterBackground"
-          className="absolute inset-0 z-0 rounded-full bg-gradient-gold-cyan shadow-glow-cyan"
+          className="absolute inset-0 z-0 rounded-full bg-gradient-to-r from-neon-cyan to-inti-gold shadow-md"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

@@ -1,13 +1,13 @@
 import { Metadata } from 'next';
 
 // Import client components
-import HeroClient from '@/components/HeroClient';
-import AboutClient from '@/components/AboutClient';
-import CraftClient from '@/components/CraftClient';
-import ProjectsClient from '@/components/projects/ProjectsClient';
-import RootsClient from '@/components/RootsClient';
-import ContactClient from '@/components/ContactClient';
-import ThreeDustClient from '@/components/ThreeDustClient';
+import HeroClient from '@/components/sections/HeroClient';
+import AboutClient from '@/components/sections/AboutClient';
+import CraftClient from '@/components/sections/CraftClient';
+import ProjectsClient from '@/components/sections/ProjectsClient';
+import RootsClient from '@/components/sections/RootsClient';
+import ContactClient from '@/components/sections/ContactClient';
+import ThreeDustClient from '@/components/animation/ThreeDustClient';
 import GlobeSceneClient from '@/components/globe/GlobeSceneClient';
 
 export const metadata: Metadata = {
