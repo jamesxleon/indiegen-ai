@@ -62,7 +62,7 @@ export default function Craft() {
               <motion.div key={skill.name} variants={item}>
                 <div className="flex justify-between mb-2">
                   <span className="font-medium">{skill.name}</span>
-                  <span className="text-neon">{skill.level}%</span>
+                  <span className="text-graphite dark:text-neon">{skill.level}%</span>
                 </div>
                 <div className="h-2 bg-violet/20 rounded-full overflow-hidden">
                   <motion.div 
