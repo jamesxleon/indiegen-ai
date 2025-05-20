@@ -72,11 +72,11 @@ export default function Roots() {
                 variants={item}
               >
                 <div className={`w-1/2 px-8 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
-                  <span className="inline-block px-3 py-1 mb-2 text-sm font-medium text-neon bg-neon/10 rounded-full">
+                  <span className="inline-block px-3 py-1 mb-2 text-sm font-medium bg-neon/10 text-graphite dark:bg-neon/20">
                     {event.year}
                   </span>
                   <h3 className="text-xl font-bold mb-2">{event.title}</h3>
-                  <p className="text-gray-300">{event.description}</p>
+                  <p className="text-graphite dark:text-gray-300">{event.description}</p>
                 </div>
                 
                 {/* Timeline dot */}

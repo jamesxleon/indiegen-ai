@@ -30,7 +30,7 @@ export default function InteractiveButton({
   const baseStyle = 'inline-flex items-center justify-center rounded-md font-medium transition-all focus:outline-none focus:ring-2 focus:ring-neon-cyan focus:ring-offset-2';
   
   const variantStyles = {
-    primary: 'bg-gradient-to-r from-neon-cyan to-inti-gold text-white shadow-md hover:shadow-lg shadow-neon-cyan/20 hover:shadow-neon-cyan/30',
+    primary: 'bg-gradient-to-r from-neon-cyan to-inti-gold text-graphite shadow-md hover:shadow-lg shadow-neon-cyan/20 hover:shadow-neon-cyan/30',
     secondary: 'bg-white dark:bg-card border-2 border-neon-cyan/70 text-violet-900 dark:text-white hover:border-neon-cyan hover:text-violet-950 dark:hover:text-white',
     ghost: 'bg-transparent text-violet-900 dark:text-gray-200 hover:bg-violet-50 dark:hover:bg-muted/50 hover:text-violet-950 dark:hover:text-neon-cyan',
   };

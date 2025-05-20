@@ -81,7 +81,7 @@ export default function Navigation() {
             whileTap={{ scale: 0.95 }}
           >
             <span className="mr-2">J</span>
-            <span className={`${isScrolled ? 'text-white' : 'text-violet-900'}`}>ames</span>
+            <span className={`${isScrolled ? 'text-white' : 'text-graphite'}`}>ames</span>
           </motion.a>
           
           {/* Desktop Navigation */}

@@ -45,9 +45,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         />
         
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10" />
-        <div className="absolute bottom-0 left-0 p-6 z-20">
-          <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-          <div className="flex flex-wrap gap-2">
+        <div className="absolute bottom-0 left-0 p-6 z-20 text-white">
+          <h3 className="text-2xl font-bold mb-2 text-white">{project.title}</h3>
+          <div className="flex flex-wrap gap-2 text-white">
             {project.tags.map(tag => (
               <span key={tag} className="text-xs bg-neon-cyan/20 dark:bg-neon-cyan/10 text-neon-cyan dark:text-neon-cyan px-2 py-1 rounded">
                 {tag}

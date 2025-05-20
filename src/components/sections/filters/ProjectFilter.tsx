@@ -48,7 +48,7 @@ function FilterButton({ isActive, onClick, label }: FilterButtonProps) {
         onClick={onClick}
         className={`relative z-10 rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 sm:text-base ${
           isActive
-            ? 'text-white dark:text-white'
+            ? 'text-graphite dark:text-white'
             : 'text-graphite hover:text-neon-cyan dark:text-gray-300 dark:hover:text-neon-cyan'
         }`}
         aria-current={isActive ? 'page' : undefined}
