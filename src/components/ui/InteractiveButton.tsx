@@ -27,18 +27,18 @@ export default function InteractiveButton({
   ...props
 }: InteractiveButtonProps) {
   // Define styles based on variant and size
-  const baseStyle = 'inline-flex items-center justify-center rounded-md font-medium transition-all focus:outline-none focus:ring-2 focus:ring-neon-cyan focus:ring-offset-2';
+  const baseStyle = 'inline-flex items-center justify-center rounded-lg font-medium transition-all focus:outline-none focus:ring-2 focus:ring-teal-300 focus:ring-offset-2';
   
   const variantStyles = {
-    primary: 'bg-gradient-to-r from-neon-cyan to-inti-gold text-graphite shadow-md hover:shadow-lg shadow-neon-cyan/20 hover:shadow-neon-cyan/30',
-    secondary: 'bg-white dark:bg-card border-2 border-neon-cyan/70 text-violet-900 dark:text-white hover:border-neon-cyan hover:text-violet-950 dark:hover:text-white',
-    ghost: 'bg-transparent text-violet-900 dark:text-gray-200 hover:bg-violet-50 dark:hover:bg-muted/50 hover:text-violet-950 dark:hover:text-neon-cyan',
+    primary: 'bg-gradient-to-r from-teal-600 to-teal-400 text-white hover:from-teal-500 hover:to-teal-300 font-semibold shadow-md hover:shadow-lg shadow-teal-500/30 hover:shadow-teal-400/40 transition-all duration-300',
+    secondary: 'bg-white dark:bg-card border-2 border-teal-500/50 text-teal-700 dark:text-teal-100 hover:border-teal-400 hover:text-teal-800 dark:hover:text-white hover:bg-teal-50/50 dark:hover:bg-teal-900/20',
+    ghost: 'bg-transparent text-teal-700 dark:text-teal-300 hover:bg-teal-100/50 dark:hover:bg-teal-900/30 hover:text-teal-800 dark:hover:text-teal-200',
   };
   
   const sizeStyles = {
-    sm: 'text-xs px-3 py-1.5',
-    md: 'text-sm px-4 py-2',
-    lg: 'text-base px-6 py-3',
+    sm: 'text-xs px-4 py-1.5',
+    md: 'text-sm px-5 py-2.5',
+    lg: 'text-base px-7 py-3.5',
   };
   
   // Combine styles

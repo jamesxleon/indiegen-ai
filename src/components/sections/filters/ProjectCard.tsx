@@ -35,7 +35,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       onMouseLeave={() => setIsHovered(false)}
       whileHover={{ y: -5, boxShadow: '0 10px 30px -10px rgba(0, 234, 255, 0.2)' }}
     >
-      <div className="h-48 bg-violet-100 dark:bg-violet/20 relative overflow-hidden">
+      <div className="h-48 bg-teal-50 dark:bg-teal-900/20 relative overflow-hidden">
         <Image
           src={project.image}
           alt={project.title}
@@ -60,7 +60,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <p className="text-gray-700 dark:text-gray-300 mb-4">{project.description}</p>
         <Link 
           href={project.link} 
-          className="inline-flex items-center text-violet-700 dark:text-neon-cyan hover:text-violet-900 dark:hover:text-white group font-medium"
+          className="inline-flex items-center text-teal-700 dark:text-teal-400 hover:text-teal-800 dark:hover:text-teal-200 group font-medium"
         >
           View Project
           <svg 

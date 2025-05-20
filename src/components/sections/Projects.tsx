@@ -54,7 +54,10 @@ export default function Projects() {
       ref={ref}
       id="projects" 
       className="min-h-screen flex items-center justify-center py-20 px-4 relative"
+      data-section="projects"
     >
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/90 via-background/70 to-background/30" />
       <div className="container mx-auto">
         <motion.div 
           className="text-center mb-16"

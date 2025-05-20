@@ -96,7 +96,7 @@ export default function Navigation() {
                     ? 'text-neon-cyan font-semibold' 
                     : isScrolled 
                       ? 'text-white hover:text-neon-cyan'
-                      : 'text-violet-900 hover:text-neon-cyan'
+                      : 'text-teal-800 hover:text-teal-600 dark:text-teal-300 dark:hover:text-teal-100'
                 }`}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.95 }}
@@ -121,7 +121,7 @@ export default function Navigation() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-4 px-4 py-2 bg-neon-cyan text-violet-900 font-bold rounded-md text-sm hover:bg-neon-cyan/90 transition-colors shadow-md hover:shadow-neon-cyan/30"
+              className="ml-4 px-4 py-2 bg-teal-600 text-white font-bold rounded-md text-sm hover:bg-teal-700 transition-colors shadow-md hover:shadow-teal-500/30"
               whileHover={{ y: -2, boxShadow: '0 4px 12px rgba(0, 234, 255, 0.3)' }}
               whileTap={{ scale: 0.95 }}
             >
@@ -131,7 +131,7 @@ export default function Navigation() {
           
           {/* Mobile menu button */}
           <motion.button 
-            className={`md:hidden p-2 ${isScrolled ? 'text-white' : 'text-violet-900'}`}
+            className={`md:hidden p-2 ${isScrolled ? 'text-white' : 'text-teal-800 dark:text-teal-200'}`}
             whileTap={{ scale: 0.9 }}
             aria-label="Toggle menu"
           >

@@ -37,7 +37,10 @@ export default function About() {
       ref={ref}
       id="about" 
       className="min-h-screen flex items-center justify-center py-20 px-4 relative"
+      data-section="about"
     >
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/90 via-background/70 to-background/30" />
       <div className="container mx-auto">
         <motion.div 
           className="max-w-4xl mx-auto text-center"
@@ -46,7 +49,7 @@ export default function About() {
           animate={isInView ? 'show' : 'hidden'}
         >
           <motion.div variants={item} className="mb-4">
-            <span className="section-label bg-background/90 dark:bg-background/80 px-3 py-1 rounded-md shadow-sm text-violet-900 dark:text-white">About Me</span>
+            <span className="section-label bg-background/90 dark:bg-background/80 px-3 py-1 rounded-md shadow-sm text-teal-800 dark:text-teal-200">About Me</span>
           </motion.div>
           
           <motion.h2 variants={item} className="mb-8">
@@ -60,7 +63,7 @@ export default function About() {
             <p>
               With a foundation in both the technical and the human aspects of technology, I create solutions that are not just functional but meaningful, bridging the gap between cutting-edge innovation and real-world impact.
             </p>
-            <p className="text-violet-800 dark:text-neon-cyan font-semibold">
+            <p className="text-teal-700 dark:text-teal-300 font-semibold">
               Let's build something extraordinary together.
             </p>
           </motion.div>

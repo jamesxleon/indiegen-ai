@@ -76,8 +76,11 @@ export default function Contact() {
     <section 
       ref={ref}
       id="contact" 
-      className="min-h-screen flex items-center justify-center py-20 px-4 relative"
+      className="relative py-20 md:py-32"
+      data-section="contact"
     >
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/90 via-background/70 to-background/30" />
       <div className="container mx-auto">
         <motion.div 
           className="max-w-4xl mx-auto text-center mb-16"
@@ -124,7 +127,8 @@ export default function Contact() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-neon focus:border-transparent outline-none transition-all"
+                  placeholder="Your name"
+                  className="w-full px-4 py-3 bg-white/10 dark:bg-white/5 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                   required
                 />
               </div>
@@ -139,7 +143,8 @@ export default function Contact() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-neon focus:border-transparent outline-none transition-all"
+                  placeholder="your.email@example.com"
+                  className="w-full px-4 py-3 bg-white/10 dark:bg-white/5 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                   required
                 />
               </div>
@@ -155,7 +160,8 @@ export default function Contact() {
                 rows={5}
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-neon focus:border-transparent outline-none transition-all"
+                placeholder="How can I help you?"
+                className="w-full px-4 py-3 bg-white/10 dark:bg-white/5 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all resize-none text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                 required
               />
             </div>

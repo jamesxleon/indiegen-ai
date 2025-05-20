@@ -50,16 +50,22 @@ module.exports = {
         canvas: "#f7f8f9",
         text: "#1b1b1b",
         neon: {
-          cyan: "#2C3A40",
-          DEFAULT: "#2C3A40",
+          cyan: "#d4af37",
+          DEFAULT: "#d4af37",
         },
         inti: {
-          gold: "#d69a00",
-          DEFAULT: "#d69a00",
+          gold: "#D3AF37",
+          DEFAULT: "#D3AF37",
         },
         violet: {
           backdrop: "#0a0020",
           DEFAULT: "#0a0020",
+        },
+        teal: {
+          light: "#2dd4bf",
+          DEFAULT: "#0d9488",
+          dark: "#0f766e",
+          darker: "#115e59"
         },
         magenta: {
           state: "#ff006e",

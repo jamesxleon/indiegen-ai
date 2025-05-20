@@ -38,7 +38,10 @@ export default function Craft() {
       ref={ref}
       id="craft" 
       className="min-h-screen flex items-center justify-center py-20 px-4 relative"
+      data-section="craft"
     >
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/90 via-background/70 to-background/30" />
       <div className="container mx-auto">
         <motion.div 
           className="max-w-4xl mx-auto text-center"
@@ -62,7 +65,7 @@ export default function Craft() {
               <motion.div key={skill.name} variants={item}>
                 <div className="flex justify-between mb-2">
                   <span className="font-medium">{skill.name}</span>
-                  <span className="text-graphite dark:text-violet-900">{skill.level}%</span>
+                  <span className="text-graphite dark:text-teal-200">{skill.level}%</span>
                 </div>
                 <div className="h-2 bg-violet/20 rounded-full overflow-hidden">
                   <motion.div 
