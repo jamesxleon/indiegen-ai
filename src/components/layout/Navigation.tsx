@@ -73,14 +73,14 @@ export default function Navigation() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <motion.a 
-            href="#hero" 
-            className="text-2xl font-bold text-neon flex items-center"
+          <motion.a
+            href="#hero"
+            className="text-2xl font-bold flex items-center"
             onClick={(e) => scrollToSection(e, '#hero')}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span className="mr-2">J</span>
+            <span className={`mr-2 ${isScrolled ? 'text-white' : 'text-graphite'}`}>J</span>
             <span className={`${isScrolled ? 'text-white' : 'text-graphite'}`}>ames</span>
           </motion.a>
           

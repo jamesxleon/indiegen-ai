@@ -103,10 +103,10 @@ export default function Contact() {
           variants={item}
         >
           {status.message && (
-            <div 
+            <div
               className={`mb-6 p-4 rounded-lg ${status.type === 'success' ? 'bg-green-500/10 border border-green-500/30' : 'bg-red-500/10 border border-red-500/30'}`}
             >
-              <p className={`${status.type === 'success' ? 'text-green-400' : 'text-red-400'}`}>
+              <p className={`${status.type === 'success' ? 'text-green-700' : 'text-red-700'}`}>
                 {status.message}
               </p>
             </div>
@@ -172,8 +172,8 @@ export default function Contact() {
           </form>
         </motion.div>
 
-        <motion.div 
-          className="mt-16 text-center text-gray-400 text-sm"
+        <motion.div
+          className="mt-16 text-center text-graphite text-sm"
           variants={item}
         >
           <p>© {new Date().getFullYear()} James. All rights reserved.</p>
