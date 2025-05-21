@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { useInView } from 'framer-motion';
+import { siteConfig } from '@/config/site';
 
 export default function Contact() {
   const ref = useRef(null);
@@ -23,8 +24,20 @@ export default function Contact() {
     }));
   };
 
+  const { contactMethod } = siteConfig.contact;
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (contactMethod.type === 'whatsapp') {
+      // Format the message for WhatsApp
+      const message = `Hi James,%0A%0AName: ${encodeURIComponent(formData.name)}%0AEmail: ${encodeURIComponent(formData.email)}%0A%0A${encodeURIComponent(formData.message)}`;
+      const whatsappUrl = `https://wa.me/${contactMethod.value}?text=${message}`;
+      window.open(whatsappUrl, '_blank');
+      return;
+    }
+    
+    // Default to email form submission
     setIsSubmitting(true);
     
     try {
@@ -41,7 +54,7 @@ export default function Contact() {
     } catch (error) {
       setStatus({
         type: 'error',
-        message: 'Something went wrong. Please try again later.'
+        message: 'Something went wrong. Please try again.'
       });
     } finally {
       setIsSubmitting(false);
@@ -116,55 +129,80 @@ export default function Contact() {
           )}
           
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Your name"
-                  className="w-full px-4 py-3 bg-white/10 dark:bg-white/5 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
-                  required
-                />
+            {contactMethod.type === 'email' ? (
+              <>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium mb-2">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Your name"
+                      className="w-full px-4 py-3 bg-white/10 dark:bg-white/5 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium mb-2">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="your.email@example.com"
+                      className="w-full px-4 py-3 bg-white/10 dark:bg-white/5 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="How can I help you?"
+                    className="w-full px-4 py-3 bg-white/10 dark:bg-white/5 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all resize-none text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                    required
+                  />
+                </div>
+              </>
+            ) : (
+              <div className="space-y-4">
+                <p className="text-gray-700 dark:text-gray-300">
+                  You'll be redirected to WhatsApp to send me a message.
+                </p>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                    Your Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="How can I help you?"
+                    className="w-full px-4 py-3 bg-white/10 dark:bg-white/5 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all resize-none text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                    required
+                  />
+                </div>
               </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="your.email@example.com"
-                  className="w-full px-4 py-3 bg-white/10 dark:bg-white/5 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
-                  required
-                />
-              </div>
-            </div>
-            
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-2">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={5}
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="How can I help you?"
-                className="w-full px-4 py-3 bg-white/10 dark:bg-white/5 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all resize-none text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
-                required
-              />
-            </div>
+            )}
             
             <div className="pt-2">
               <button
@@ -172,7 +210,7 @@ export default function Contact() {
                 disabled={isSubmitting}
                 className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-neon-cyan to-inti-gold text-white font-bold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                {isSubmitting ? 'Sending...' : contactMethod.buttonText || 'Send Message'}
               </button>
             </div>
           </form>

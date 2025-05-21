@@ -53,18 +53,18 @@ export default function About() {
           </motion.div>
           
           <motion.h2 variants={item} className="mb-8">
-            Building Bridges Between Worlds
+            Building for humanity
           </motion.h2>
           
           <motion.div variants={item} className="space-y-6 text-lg text-gray-700 dark:text-gray-300">
             <p>
-              Born in the heart of the Andes, I bring a unique perspective to technology that blends ancient wisdom with modern innovation. My Kichwa heritage taught me the value of community, resilience, and sustainable thinking—principles that guide my work in building intelligent systems.
+              Born in the heart of Ecuador, I bring a unique perspective to technology that blends ancient wisdom with modern innovation. My Kichwa heritage taught me the value of community, resilience, and sustainable thinking—principles that guide my work in building solutions to connect all extensions of humanity.
             </p>
             <p>
               With a foundation in both the technical and the human aspects of technology, I create solutions that are not just functional but meaningful, bridging the gap between cutting-edge innovation and real-world impact.
             </p>
             <p className="text-teal-700 dark:text-teal-300 font-semibold">
-              Let's build something extraordinary together.
+              Let's do something great together.
             </p>
           </motion.div>
         </motion.div>

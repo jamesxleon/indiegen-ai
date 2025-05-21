@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 // Project categories
-export type ProjectCategory = 'all' | 'web' | 'ai' | 'iot';
+export type ProjectCategory = 'all' | 'web' | 'ai';
 
 interface ProjectFilterProps {
   onFilterChange: (category: ProjectCategory) => void;
@@ -17,7 +17,6 @@ export default function ProjectFilter({ onFilterChange, currentFilter }: Project
     { id: 'all', label: 'All' },
     { id: 'web', label: 'Web' },
     { id: 'ai', label: 'AI' },
-    { id: 'iot', label: 'IoT' },
   ];
 
   return (

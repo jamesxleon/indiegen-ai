@@ -40,7 +40,7 @@ export default function Hero() {
   };
 
   // Animate each letter in the name
-  const name = 'James';
+  const name = 'This is James';
   const nameVariants = {
     hidden: { opacity: 0, letterSpacing: '0.5em' },
     visible: (i: number) => ({
@@ -84,7 +84,7 @@ export default function Hero() {
         <Parallax speed={0.1} direction="up">
           <motion.div variants={item} className="mb-8">
             <span className="section-label bg-background/80 px-3 py-1 rounded-md shadow-sm">
-              Welcome to my world
+              Welcome to my mind
             </span>
           </motion.div>
           
