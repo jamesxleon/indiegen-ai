@@ -105,4 +105,84 @@
   .animate-fade-in {
     animation: fadeIn 0.5s ease-out forwards;
   }
+
+  /* Section label styles */
+  .section-label {
+    @apply text-sm font-medium uppercase tracking-widest text-primary mb-4;
+  }
+}
+
+/* Print styles for PDF export and browser printing */
+@media print {
+  body {
+    @apply bg-white text-black;
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+
+  /* Hide interactive elements */
+  button,
+  .fixed,
+  nav,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Ensure content prints properly */
+  #resume-content {
+    @apply shadow-none border-none;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Page break handling */
+  .page-break-before {
+    page-break-before: always;
+  }
+
+  .page-break-after {
+    page-break-after: always;
+  }
+
+  .page-break-inside-avoid {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Ensure proper text colors for print */
+  * {
+    color: black !important;
+    background: white !important;
+    border-color: #ccc !important;
+  }
+
+  /* Maintain structure without shadows/effects */
+  .rounded-2xl,
+  .rounded-xl {
+    border: 1px solid #ddd !important;
+    border-radius: 8px !important;
+  }
+
+  /* Optimize spacing for print */
+  .space-y-16 > * + * {
+    margin-top: 2rem !important;
+  }
+
+  .space-y-8 > * + * {
+    margin-top: 1rem !important;
+  }
+
+  /* Keep links visible */
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666 !important;
+  }
+
+  /* Image handling */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
 }

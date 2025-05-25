@@ -22,12 +22,12 @@ export const siteConfig = {
 };
 
 export const navItems = [
-  { name: 'Home', href: '#hero' },
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#craft' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Journey', href: '#roots' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', href: '/#hero' },
+  { name: 'About', href: '/#about' },
+  { name: 'Skills', href: '/#craft' },
+  { name: 'Projects', href: '/#projects' },
+  { name: 'Journey', href: '/#roots' },
+  { name: 'Contact', href: '/#contact' },
 ];
 
 export const skills = [

@@ -87,8 +87,8 @@ export default function RootLayout({
             {/* Navigation */}
             <NavigationClient />
             
-            {/* Theme toggle in fixed position */}
-            <div className="fixed right-4 top-4 z-50">
+            {/* Theme toggle in fixed position - positioned to avoid navigation */}
+            <div className="fixed right-6 top-6 z-50 md:right-8 md:top-8">
               <ThemeToggle />
             </div>
             
