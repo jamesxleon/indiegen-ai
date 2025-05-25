@@ -15,19 +15,24 @@ import {
 import ExperienceItem from '@/components/resume/ExperienceItem';
 import EducationItem from '@/components/resume/EducationItem';
 import SkillBadge from '@/components/resume/SkillBadge';
-// import { usePDFExport } from '@/hooks/usePDFExport';
+import { usePDFExport } from '@/hooks/usePDFExport';
 
 export default function ResumeClient() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
-  // const exportPDF = usePDFExport();
+  const { exportPDF, printRef } = usePDFExport();
   const [isExporting, setIsExporting] = useState(false);
 
   const handleExportPDF = async () => {
     setIsExporting(true);
-    // Temporarily disabled PDF export - will re-enable once core functionality is stable
-    alert('PDF export will be re-enabled once dependencies are fully stabilized');
-    setIsExporting(false);
+    try {
+      await exportPDF();
+    } catch (error) {
+      console.error('PDF export failed:', error);
+      alert('Failed to generate PDF. Please try again.');
+    } finally {
+      setIsExporting(false);
+    }
   };
 
   const containerVariants = {
@@ -89,7 +94,7 @@ export default function ResumeClient() {
             variants={itemVariants}
             onClick={handleExportPDF}
             disabled={isExporting}
-            className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-primary to-primary/80 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-primary/25 disabled:opacity-50"
+            className="no-print group relative overflow-hidden rounded-xl bg-gradient-to-r from-primary to-primary/80 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-primary/25 disabled:opacity-50"
           >
             <span className="relative z-10 flex items-center gap-2">
               {isExporting ? (
@@ -111,7 +116,7 @@ export default function ResumeClient() {
         </div>
 
         {/* Printable content wrapper */}
-        <div id="resume-content" className="space-y-16 bg-background">
+        <div ref={printRef} id="resume-content" className="space-y-16 bg-background">
           {/* Profile Summary with Photo */}
           <motion.div 
             variants={itemVariants}
