@@ -6,7 +6,7 @@ export const resumeProfile = {
   location: "Riobamba, Ecuador",
   email: "jamesleolex@gmail.com",
   phone: "+593 987 398 610",
-  photoPlaceholder: "/images/profile.jpg", // User can replace this
+  photoPlaceholder: "/images/profile.JPG", // User can replace this
   links: [
     { label: "LinkedIn", url: "https://linkedin.com/in/esjamesleon" },
     { label: "GitHub", url: "https://github.com/jamesxleon" },

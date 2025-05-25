@@ -24,20 +24,20 @@ export default function EducationItem({ degree, institution, period, description
       className="group mb-8 rounded-2xl border border-border/50 bg-card/80 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10"
     >
       <div className="flex flex-col gap-2">
-        <span className="inline-flex w-fit items-center rounded-full bg-secondary/20 px-3 py-1 text-sm font-medium text-secondary-foreground">
+        <span className="inline-flex w-fit items-center rounded-full bg-secondary/20 px-3 py-1 text-sm font-medium text-secondary-foreground print-date">
           {period}
         </span>
         
-        <h3 className="text-2xl font-bold text-foreground transition-colors group-hover:text-primary">
+        <h3 className="text-2xl font-bold text-foreground transition-colors group-hover:text-primary print-position">
           {degree}
         </h3>
         
-        <h4 className="text-lg font-semibold text-primary/80">
+        <h4 className="text-lg font-semibold text-primary/80 print-company">
           {institution}
         </h4>
         
         {description && (
-          <p className="mt-3 leading-relaxed text-foreground/80">
+          <p className="mt-3 leading-relaxed text-foreground/80 print-description">
             {description}
           </p>
         )}

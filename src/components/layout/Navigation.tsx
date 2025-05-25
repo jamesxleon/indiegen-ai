@@ -134,7 +134,7 @@ export default function Navigation() {
             <motion.a
               href="/resume"
               onClick={(e) => handleNavClick(e, '/resume')}
-              className={`ml-4 px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-300 shadow-md ${
+              className={`ml-4 px-4 py-2 pr-10 rounded-lg font-semibold text-sm transition-all duration-300 shadow-md ${
                 pathname === '/resume'
                   ? 'bg-primary text-primary-foreground shadow-primary/25'
                   : 'bg-primary/90 text-primary-foreground hover:bg-primary hover:shadow-lg hover:shadow-primary/25'
@@ -212,7 +212,7 @@ export default function Navigation() {
                 <motion.a
                   href="/resume"
                   onClick={(e) => handleNavClick(e, '/resume')}
-                  className={`px-4 py-2 text-lg font-medium rounded-lg transition-colors ${
+                  className={`px-4 py-2 pr-10 text-lg font-medium rounded-lg transition-colors ${
                     pathname === '/resume'
                       ? 'bg-primary text-primary-foreground'
                       : 'bg-primary/90 text-primary-foreground hover:bg-primary'

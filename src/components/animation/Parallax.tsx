@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode, useRef, useEffect, useState } from 'react';
-import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 interface ParallaxProps {
   children: ReactNode;
@@ -44,24 +44,20 @@ export default function Parallax({
   
   // Calculate transform and opacity based on scroll position
   const getTransformValue = () => {
-    if (prefersReducedMotion) return {} as any;
+    if (prefersReducedMotion) return {};
     
-    const transformMap: Record<string, MotionValue<number>> = {
-      up: useTransform(scrollYProgress, [0, 1], ['0%', `${-speed * 100}%`]),
-      down: useTransform(scrollYProgress, [0, 1], ['0%', `${speed * 100}%`]),
-      left: useTransform(scrollYProgress, [0, 1], ['0%', `${-speed * 100}%`]),
-      right: useTransform(scrollYProgress, [0, 1], ['0%', `${speed * 100}%`]),
-    };
+    const transformValue = useTransform(
+      scrollYProgress, 
+      [0, 1], 
+      direction === 'up' || direction === 'left' 
+        ? ['0%', `${-speed * 100}%`] 
+        : ['0%', `${speed * 100}%`]
+    );
     
-    const directionKeys = {
-      up: 'y',
-      down: 'y',
-      left: 'x',
-      right: 'x',
-    };
+    const directionKey = direction === 'left' || direction === 'right' ? 'x' : 'y';
     
     return {
-      [directionKeys[direction]]: transformMap[direction],
+      [directionKey]: transformValue,
     };
   };
   
@@ -78,8 +74,8 @@ export default function Parallax({
       }}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.4, ease: 'easeOut' }}
-      viewport={{ once: true, margin: '-20%' }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      viewport={{ once: true, margin: '-10%' }}
     >
       {children}
     </motion.div>

@@ -65,18 +65,18 @@ export default function ResumeClient() {
         animate={isInView ? 'show' : 'hidden'}
       >
         {/* Header & Download button */}
-        <div className="mb-16 flex flex-col items-center justify-between gap-6 md:flex-row">
+        <div className="mb-16 flex flex-col items-center justify-between gap-6 md:flex-row print-header">
           <motion.div variants={itemVariants} className="text-center md:text-left">
-            <p className="mb-2 text-sm font-medium uppercase tracking-widest text-primary">
+            <p className="mb-2 text-sm font-medium uppercase tracking-widest text-primary no-print">
               Curriculum Vitae
             </p>
             <h1 className="mb-2 text-4xl font-bold text-foreground md:text-5xl">
               {resumeProfile.fullName}
             </h1>
-            <p className="text-xl text-muted-foreground md:text-2xl">
+            <p className="text-xl text-muted-foreground md:text-2xl print-subtitle">
               {resumeProfile.title}
             </p>
-            <div className="mt-4 flex flex-wrap gap-4 text-sm text-muted-foreground">
+            <div className="mt-4 flex flex-wrap gap-4 text-sm text-muted-foreground print-contact">
               <span>{resumeProfile.location}</span>
               <span>•</span>
               <a 
@@ -116,20 +116,20 @@ export default function ResumeClient() {
         </div>
 
         {/* Printable content wrapper */}
-        <div ref={printRef} id="resume-content" className="space-y-16 bg-background">
+        <div ref={printRef} id="resume-content" className="space-y-16 bg-background print-resume">
           {/* Profile Summary with Photo */}
           <motion.div 
             variants={itemVariants}
-            className="rounded-2xl border border-border/50 bg-card/80 p-8 shadow-lg backdrop-blur-sm"
+            className="rounded-2xl border border-border/50 bg-card/80 p-8 shadow-lg backdrop-blur-sm print-section print-avoid-break"
           >
-            <div className="flex flex-col gap-8 md:flex-row md:items-start">
+            <div className="flex flex-col gap-8 md:flex-row md:items-start print-two-column">
               <div className="flex-shrink-0">
-                <div className="relative h-48 w-48 mx-auto md:mx-0 overflow-hidden rounded-2xl border-4 border-primary/20">
+                <div className="relative h-32 w-32 mx-auto md:mx-0 overflow-hidden rounded-2xl border-4 border-primary/20">
                   <Image
                     src={resumeProfile.photoPlaceholder}
                     alt={resumeProfile.fullName}
                     fill
-                    className="object-cover"
+                    className="object-cover print-photo"
                     onError={(e) => {
                       // Fallback to placeholder if image fails to load
                       const target = e.target as HTMLImageElement;
@@ -140,22 +140,24 @@ export default function ResumeClient() {
               </div>
               
               <div className="flex-1">
-                <h3 className="mb-4 text-2xl font-bold text-primary">Professional Summary</h3>
-                <p className="leading-relaxed text-foreground/80 text-lg">
-                  {resumeProfile.summary}
-                </p>
+                <h3 className="mb-4 text-2xl font-bold text-primary print-section-title">Professional Summary</h3>
+                <div className="print-summary">
+                  <p className="leading-relaxed text-foreground/80 text-lg print-description">
+                    {resumeProfile.summary}
+                  </p>
+                </div>
                 
-                <div className="mt-6 flex flex-wrap gap-4">
+                <div className="mt-6 flex flex-wrap gap-4 print-links">
                   {resumeProfile.links.map((link) => (
                     <a
                       key={link.label}
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/20"
+                      className="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/20 print-link"
                     >
                       {link.label}
-                      <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="h-4 w-4 no-print" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                       </svg>
                     </a>
@@ -166,37 +168,43 @@ export default function ResumeClient() {
           </motion.div>
 
           {/* Experience */}
-          <motion.div variants={itemVariants}>
-            <h2 className="mb-10 text-3xl font-bold text-primary">Professional Experience</h2>
+          <motion.div variants={itemVariants} className="print-section">
+            <h2 className="mb-10 text-3xl font-bold text-primary print-section-title">Professional Experience</h2>
             <div className="space-y-6">
               {experience.map((item, idx) => (
-                <ExperienceItem key={idx} {...item} />
+                <div key={idx} className="print-item print-avoid-break">
+                  <ExperienceItem {...item} />
+                </div>
               ))}
             </div>
           </motion.div>
 
           {/* Education */}
-          <motion.div variants={itemVariants}>
-            <h2 className="mb-10 text-3xl font-bold text-primary">Education</h2>
+          <motion.div variants={itemVariants} className="print-section">
+            <h2 className="mb-10 text-3xl font-bold text-primary print-section-title">Education</h2>
             <div className="space-y-6">
               {education.map((item, idx) => (
-                <EducationItem key={idx} {...item} />
+                <div key={idx} className="print-item print-avoid-break">
+                  <EducationItem {...item} />
+                </div>
               ))}
             </div>
           </motion.div>
 
           {/* Skills */}
-          <motion.div variants={itemVariants}>
-            <h2 className="mb-10 text-3xl font-bold text-primary">Technical Skills</h2>
-            <div className="grid gap-8 md:grid-cols-2">
+          <motion.div variants={itemVariants} className="print-section">
+            <h2 className="mb-10 text-3xl font-bold text-primary print-section-title">Technical Skills</h2>
+            <div className="grid gap-8 md:grid-cols-2 print-grid">
               {Object.entries(skills).map(([category, list]) => (
-                <div key={category} className="rounded-2xl border border-border/50 bg-card/80 p-6 backdrop-blur-sm">
+                <div key={category} className="rounded-2xl border border-border/50 bg-card/80 p-6 backdrop-blur-sm print-avoid-break">
                   <h3 className="mb-4 text-xl font-semibold capitalize text-foreground">
                     {category.replace(/([A-Z])/g, ' $1').trim()}
                   </h3>
-                  <div className="flex flex-wrap">
+                  <div className="flex flex-wrap print-skill-grid">
                     {list.map((skill, index) => (
-                      <SkillBadge key={skill} label={skill} index={index} />
+                      <span key={skill} className="print-skill-item">
+                        <SkillBadge label={skill} index={index} />
+                      </span>
                     ))}
                   </div>
                 </div>
@@ -205,17 +213,17 @@ export default function ResumeClient() {
           </motion.div>
 
           {/* Projects & Research */}
-          <motion.div variants={itemVariants}>
-            <h2 className="mb-10 text-3xl font-bold text-primary">Projects & Research</h2>
+          <motion.div variants={itemVariants} className="print-section">
+            <h2 className="mb-10 text-3xl font-bold text-primary print-section-title">Projects & Research</h2>
             <div className="space-y-6">
               {projectsAndResearch.map((project, idx) => (
                 <div 
                   key={idx}
-                  className="rounded-2xl border border-border/50 bg-card/80 p-6 backdrop-blur-sm"
+                  className="rounded-2xl border border-border/50 bg-card/80 p-6 backdrop-blur-sm print-item print-avoid-break"
                 >
-                  <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-start justify-between gap-4 print-experience-header">
                     <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-foreground">
+                      <h3 className="text-xl font-semibold text-foreground print-position">
                         {project.link ? (
                           <a 
                             href={project.link} 
@@ -230,10 +238,10 @@ export default function ResumeClient() {
                         )}
                       </h3>
                       {project.description && (
-                        <p className="mt-2 text-foreground/80">{project.description}</p>
+                        <p className="mt-2 text-foreground/80 print-description">{project.description}</p>
                       )}
                     </div>
-                    <span className="text-sm text-muted-foreground">{project.date}</span>
+                    <span className="text-sm text-muted-foreground print-date">{project.date}</span>
                   </div>
                 </div>
               ))}
@@ -241,31 +249,31 @@ export default function ResumeClient() {
           </motion.div>
 
           {/* Certifications */}
-          <motion.div variants={itemVariants}>
-            <h2 className="mb-10 text-3xl font-bold text-primary">Certifications</h2>
-            <div className="grid gap-6 md:grid-cols-2">
+          <motion.div variants={itemVariants} className="print-section">
+            <h2 className="mb-10 text-3xl font-bold text-primary print-section-title">Certifications</h2>
+            <div className="grid gap-6 md:grid-cols-2 print-grid">
               {certifications.map((cert, idx) => (
                 <div 
                   key={idx}
-                  className="rounded-2xl border border-border/50 bg-card/80 p-6 backdrop-blur-sm"
+                  className="rounded-2xl border border-border/50 bg-card/80 p-6 backdrop-blur-sm print-certification print-avoid-break"
                 >
-                  <h3 className="text-lg font-semibold text-foreground">{cert.name}</h3>
-                  <p className="text-primary/80">{cert.issuer}</p>
-                  {cert.date && <p className="text-sm text-muted-foreground">{cert.date}</p>}
+                  <h3 className="text-lg font-semibold text-foreground print-position">{cert.name}</h3>
+                  <p className="text-primary/80 print-company">{cert.issuer}</p>
+                  {cert.date && <p className="text-sm text-muted-foreground print-date">{cert.date}</p>}
                 </div>
               ))}
             </div>
           </motion.div>
 
           {/* Awards */}
-          <motion.div variants={itemVariants}>
-            <h2 className="mb-10 text-3xl font-bold text-primary">Awards & Recognition</h2>
-            <div className="rounded-2xl border border-border/50 bg-card/80 p-6 backdrop-blur-sm">
+          <motion.div variants={itemVariants} className="print-section">
+            <h2 className="mb-10 text-3xl font-bold text-primary print-section-title">Awards & Recognition</h2>
+            <div className="rounded-2xl border border-border/50 bg-card/80 p-6 backdrop-blur-sm print-avoid-break">
               <ul className="space-y-3">
                 {awards.map((award, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <div className="mt-2 h-2 w-2 rounded-full bg-primary flex-shrink-0" />
-                    <span className="text-foreground/80">{award}</span>
+                  <li key={idx} className="flex items-start gap-3 print-award">
+                    <div className="mt-2 h-2 w-2 rounded-full bg-primary flex-shrink-0 print-award-bullet" />
+                    <span className="text-foreground/80 print-description">{award}</span>
                   </li>
                 ))}
               </ul>
@@ -273,17 +281,17 @@ export default function ResumeClient() {
           </motion.div>
 
           {/* References */}
-          <motion.div variants={itemVariants}>
-            <h2 className="mb-10 text-3xl font-bold text-primary">References</h2>
-            <div className="grid gap-6 md:grid-cols-2">
+          <motion.div variants={itemVariants} className="print-section">
+            <h2 className="mb-10 text-3xl font-bold text-primary print-section-title">References</h2>
+            <div className="grid gap-6 md:grid-cols-2 print-grid">
               {references.map((ref, idx) => (
                 <div 
                   key={idx}
-                  className="rounded-2xl border border-border/50 bg-card/80 p-6 backdrop-blur-sm"
+                  className="rounded-2xl border border-border/50 bg-card/80 p-6 backdrop-blur-sm print-reference print-avoid-break"
                 >
-                  <h3 className="text-lg font-semibold text-foreground">{ref.name}</h3>
-                  <p className="text-primary/80">{ref.role}</p>
-                  <p className="mt-2 text-sm text-muted-foreground">{ref.contact}</p>
+                  <h3 className="text-lg font-semibold text-foreground print-position">{ref.name}</h3>
+                  <p className="text-primary/80 print-company">{ref.role}</p>
+                  <p className="mt-2 text-sm text-muted-foreground print-description">{ref.contact}</p>
                 </div>
               ))}
             </div>
